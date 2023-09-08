@@ -1,0 +1,142 @@
+EMAIL PASSWORD DIMENTICATA
+
+const emailContent = `
+
+
+
+
+    <html lang="en">
+
+    <style>
+
+        #body{
+            background-color:rgb(243,242,241);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        #content{
+            width: 80%;
+            height: 65%;
+            background-color:white;
+            padding: 30px;
+            position: relative;
+            
+        }
+
+        button{
+            margin-top: 20px;
+        }
+
+        #image{
+            width: 40px;
+            height: 30px;
+            position: absolute;
+            top:5;
+            right:5;
+        }
+
+        @media screen and (min-width: 576px) and (max-width: 840px)  {
+
+            #body{
+                background-color:rgb(243,242,241);
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+            
+            #content{
+                width: 80%;
+                height: 65%;
+                background-color:white;
+                padding: 30px;
+                position: relative;
+            
+            }
+
+            button{
+                margin-top: 20px;
+            }
+
+            #image{
+                width: 60px;
+                height: 50px;
+                position: absolute;
+                top:30;
+                right:30;
+            }
+        }
+
+        
+        @media screen and (min-width: 900px) {
+
+            #body{
+                background-color:rgb(243,242,241);
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+            
+            #content{
+                width: 80%;
+                height: 65%;
+                background-color:white;
+                padding: 30px;
+                position: relative;
+            }
+
+
+
+            button{
+                margin-top: 20px;
+            }
+
+            #image{
+                width: 60px;
+                height: 50px;
+                position: absolute;
+                top:30;
+                right:30;
+            }
+        }
+
+
+       
+    </style>
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Email di Prova</title>
+        </head>
+
+        <body id="body">
+           <div id="content">
+                <img src="cid:logo" id="image" alt="logo">
+                <h2 style="color: rgb(128,128,128)">Account Full Price</h2> 
+                <h1 style="color: rgb(78,195,247)">Reimpostazione della password</h1>
+                <p>Clicca <a href="#">qui</a> per reimpostare la tua password</p>       
+                <p style="position: absolute;bottom: 0;">Grazie,<br/>il team degli account Full Price</p>
+           </div>
+          
+        </body>
+
+    </html> `
+    ;
+
+
+// Crea l'oggetto dell'email
+const mailOptions = {
+    from: 'mittente@example.com',
+    to: 'mattilaure@gmail.com',
+    subject: "Recupero password per l'account Full Price",
+    html: emailContent,
+    attachments: [{
+        filename: 'tinyLogo.png',
+        path: './tinyLogo.png',
+        cid: 'logo' //same cid value as in the html img src
+    }]
+
+};

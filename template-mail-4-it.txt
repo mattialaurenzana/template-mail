@@ -1,0 +1,164 @@
+EMAIL FATTURA
+
+const emailContent = `
+
+    <html lang="en">
+
+    <style>
+
+        #body{
+            background-color:rgb(243,242,241);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        #content{
+            width: 80%;
+            height: 65%;
+            background-color:white;
+            margin: 20px;
+            display:flex;
+            flex-direction:column;
+            align-items:start;
+            justify-content:start;
+            padding: 20px;
+            
+        }
+        h1 {
+            font-size:12px;
+        }
+
+        button{
+            margin-top: 20px;
+        }
+
+        #image{
+            width: 200px;
+            height: 35px;
+            margin-top: 50px;
+        }
+
+        #footer{
+            width: 80%;
+            text-align: center;
+        }
+
+
+        @media screen and (min-width: 576px) and (max-width: 840px)  {
+
+            #body{
+                background-color:rgb(243,242,241);
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+            
+            #content{
+                width: 60%;
+                height: 40%;
+                background-color:white;
+                margin: 20px;
+                display:flex;
+                flex-direction:column;
+                justify-content: start;
+                align-items: start;
+                padding: 60px;
+
+            }
+            h1 {
+                font-size:20px;
+
+            }
+
+            button{
+                margin-top: 20px;
+            }
+
+            #image{
+                width: 200px;
+                height: 35px;
+                margin-top: 150px;
+            }
+        }
+
+        
+        @media screen and (min-width: 900px) {
+
+            #body{
+                background-color:rgb(243,242,241);
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+            
+            #content{
+                width: 80%;
+                height: 70%;
+                margin: 20px;
+                background-color:white;
+                margin: 20px;
+                display:flex;
+                flex-direction:column;
+                align-items:start;
+                justify-content:start;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size:25px;
+            }
+
+            button{
+                margin-top: 20px;
+            }
+
+            #image{
+                width: 200px;
+                height: 35px;
+                margin-top: 60px;
+            }
+        }
+
+
+       
+    </style>
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Email di Prova</title>
+        </head>
+
+        <body id="body">
+           <div id="content">
+                <h3>Gentile cliente {{user.name}} ,</h3>
+                <p>
+                    In allegato trova la nostra fattura per i servizi forniti.
+                </p>
+
+                <p>
+                    Cordiali saluti,<br> Full Price
+                </p>
+                <img src="cid:logo" id="image" alt="logo">
+           </div>
+    
+        </body>
+
+    </html> `
+    ;
+
+
+// Crea l'oggetto dell'email
+const mailOptions = {
+    from: 'mittente@example.com',
+    to: 'mattilaure@gmail.com',
+    subject: 'Invio fattura {{invoice.number}} del {{invoice.date}}',
+    html: emailContent,
+    attachments: [{
+        filename: 'fullLogo.png',
+        path: './fullLogo.png',
+        cid: 'logo' //same cid value as in the html img src
+    }]
+};
